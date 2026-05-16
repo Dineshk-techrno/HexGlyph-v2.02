@@ -1,0 +1,34 @@
+# Gradle
+.gradle/
+build/
+app/build/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Local config — NEVER commit
+local.properties
+
+# Android
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Keys / secrets — NEVER commit
+*.jks
+*.keystore
+keystore.properties
+google-services.json
+
+# Room schemas committed intentionally — remove line below to ignore
+# app/schemas/
+
+# macOS
+.DS_Store
+
+# Temp exports
+*.apk
+*.aab

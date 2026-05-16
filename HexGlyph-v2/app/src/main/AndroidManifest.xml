@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Camera — all API levels -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+        Android 13+ (API 33+): granular media permission replaces READ_EXTERNAL_STORAGE.
+        Must be declared with minSdkVersion="33" so it is only requested on API 33+.
+    -->
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        android:minSdkVersion="33" />
+
+    <!--
+        Android 10–12L (API 29–32): READ_EXTERNAL_STORAGE still required.
+        maxSdkVersion="32" ensures it is never requested on API 33+ where it is ignored.
+    -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <application
+        android:name=".HexGlyphApp"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:label="HexGlyph"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HexGlyph">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateUnspecified">
+
+            <!--
+                stateUnspecified: system decides keyboard behavior.
+                adjustResize is deprecated from API 30; Compose + enableEdgeToEdge
+                manages WindowInsets natively via WindowInsetsController.
+            -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
